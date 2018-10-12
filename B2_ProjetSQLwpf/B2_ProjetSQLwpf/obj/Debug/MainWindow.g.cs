@@ -76,13 +76,13 @@ namespace B2_ProjetSQLwpf
             this._contentLoaded = true;
         }
 
-        internal System.Windows.Controls.Label ui_mainwindow_label_tritreBienvenue;
-        internal System.Windows.Controls.Label ui_mainwindow_label_login;
-        internal System.Windows.Controls.Label ui_mainwindow_label_mdp;
-        internal System.Windows.Controls.Button ui_mainwindow_button_connexion;
-        internal System.Windows.Controls.Button ui_mainwindow_button_inscription;
-        internal System.Windows.Controls.TextBox ui_mainwindow_textbox_login;
-        internal System.Windows.Controls.TextBox ui_mainwindow_textbox_mdp;
+        internal System.Windows.Controls.Label mainwindowLabelBienvenue;
+        internal System.Windows.Controls.Label mainwindowLabelLogin;
+        internal System.Windows.Controls.Label mainwindowLabelMdp;
+        internal System.Windows.Controls.Button mainwindowButtonConnexion;
+        internal System.Windows.Controls.Button mainwindowButtonInscription;
+        internal System.Windows.Controls.TextBox mainwindowTextboxLogin;
+        internal System.Windows.Controls.TextBox mainwindowTextboxMdp;
     }
 }
 
