@@ -27,5 +27,6 @@
         <Label x:Name="mailLabel" Content="Mail" HorizontalAlignment="Left" Margin="265,157,0,0" VerticalAlignment="Top"/>
         <Label x:Name="mdpLabel" Content="Mot de passe" HorizontalAlignment="Left" Margin="250,228,0,0" VerticalAlignment="Top"/>
         <Label x:Name="soldeLabel" Content="Solde" HorizontalAlignment="Left" Margin="275,299,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="643,228,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
