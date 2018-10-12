@@ -1,20 +1,32 @@
-﻿<Window x:Class="B2_ProjetSQLwpf.MainWindow"
+﻿<Window x:Class="B2_ProjetSQLwpf.Inscription"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:B2_ProjetSQLwpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Inscription" Height="450" Width="800">
     <Grid>
-        <Label x:Name="ui_mainwindow_label_tritreBienvenue" Content="Bienvenue !" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Label x:Name="ui_mainwindow_label_login" Content="Login" HorizontalAlignment="center" Margin="-128,128,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="ui_mainwindow_label_mdp" Content="Mdp" HorizontalAlignment="center" Margin="-128,192,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ui_mainwindow_button_connexion" Content="Connexion" HorizontalAlignment="center" Margin="0,256,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="ui_mainwindow_button_inscription" Content="Inscription" HorizontalAlignment="center" Margin="0,320,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="ui_mainwindow_textbox_login" HorizontalAlignment="center" Height="23" Margin="192,132,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ui_mainwindow_textbox_mdp" HorizontalAlignment="Center" Height="23" Margin="192,196,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-
-        <Image HorizontalAlignment="Left" Height="100" Margin="643,228,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="nomTextBoxInscription" HorizontalAlignment="Left" Height="21" Margin="25,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="prenomTextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="25,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="adresse1TextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="25,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="adresse2TextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="25,259,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="cpTextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="25,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="villeTextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="212,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="telTextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="212,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="mailTextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="212,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <PasswordBox x:Name="mdpTextBoxInscription" HorizontalAlignment="Left" Margin="212,259,0,0" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="soldeTextBoxInscription" HorizontalAlignment="Left" Height="23" Margin="212,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" TextChanged="soldeText_TextChanged"/>
+        <Label x:Name="nomLabelInscription" Content="Nom" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelPrenomLabelInscription" Content="Prenom" HorizontalAlignment="Left" Margin="75,85,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="adresse1LabelInscription" Content="Adresse1" HorizontalAlignment="Left" Margin="75,159,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="adresse2LabelInscription" Content="Adresse2" HorizontalAlignment="Left" Margin="75,228,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="cpLabelInscription" Content="Code Postal" HorizontalAlignment="Left" Margin="75,299,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="villeLabelInscription" Content="Ville" HorizontalAlignment="Left" Margin="266,14,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="telLabelInscription" Content="Telephone" HorizontalAlignment="Left" Margin="250,88,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="mailLabelLabelInscription" Content="Mail" HorizontalAlignment="Left" Margin="265,157,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="mdpLabelLabelInscription" Content="Mot de passe" HorizontalAlignment="Left" Margin="250,228,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="soldeLabelLabelInscription" Content="Solde" HorizontalAlignment="Left" Margin="275,299,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="643,228,0,0" VerticalAlignment="Top" Width="100" Source=""/>
     </Grid>
 </Window>
