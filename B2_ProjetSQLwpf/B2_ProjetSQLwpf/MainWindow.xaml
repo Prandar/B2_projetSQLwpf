@@ -7,25 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="nomText" HorizontalAlignment="Left" Height="21" Margin="25,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="prenomText" HorizontalAlignment="Left" Height="23" Margin="25,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="adresse1Text" HorizontalAlignment="Left" Height="23" Margin="25,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="adresse2Text" HorizontalAlignment="Left" Height="23" Margin="25,259,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="cpText" HorizontalAlignment="Left" Height="23" Margin="25,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="villeText" HorizontalAlignment="Left" Height="23" Margin="212,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="telText" HorizontalAlignment="Left" Height="23" Margin="212,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="mailText" HorizontalAlignment="Left" Height="23" Margin="212,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <PasswordBox x:Name="mdpText" HorizontalAlignment="Left" Margin="212,259,0,0" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="soldeText" HorizontalAlignment="Left" Height="23" Margin="212,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" TextChanged="soldeText_TextChanged"/>
-        <Label x:Name="nomLabel" Content="Nom" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelPrenom" Content="Prenom" HorizontalAlignment="Left" Margin="75,85,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelAdresse1" Content="Adresse1" HorizontalAlignment="Left" Margin="75,159,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelAdresse2" Content="Adresse2" HorizontalAlignment="Left" Margin="75,228,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelCp" Content="Code Postal" HorizontalAlignment="Left" Margin="75,299,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelVille" Content="Ville" HorizontalAlignment="Left" Margin="266,14,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTel" Content="Telephone" HorizontalAlignment="Left" Margin="250,88,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="mailLabel" Content="Mail" HorizontalAlignment="Left" Margin="265,157,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="mdpLabel" Content="Mot de passe" HorizontalAlignment="Left" Margin="250,228,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="soldeLabel" Content="Solde" HorizontalAlignment="Left" Margin="275,299,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ui_mainwindow_label_tritreBienvenue" Content="Bienvenue !" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="ui_mainwindow_label_login" Content="Login" HorizontalAlignment="center" Margin="-128,128,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ui_mainwindow_label_mdp" Content="Mdp" HorizontalAlignment="center" Margin="-128,192,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ui_mainwindow_button_connexion" Content="Connexion" HorizontalAlignment="center" Margin="0,256,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="ui_mainwindow_button_inscription" Content="Inscription" HorizontalAlignment="center" Margin="0,320,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="ui_mainwindow_textbox_login" HorizontalAlignment="center" Height="23" Margin="192,132,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ui_mainwindow_textbox_mdp" HorizontalAlignment="Center" Height="23" Margin="192,196,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>
