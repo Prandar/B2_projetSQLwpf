@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="mainwindowLabelBienvenue" Content="Bienvenue !" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="mainwindowLabelBienvenue" Content="Bienvenue !!" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="mainwindowLabelLogin" Content="Login" HorizontalAlignment="center" Margin="-128,128,0,0" VerticalAlignment="Top"/>
         <Label x:Name="mainwindowLabelMdp" Content="Mdp" HorizontalAlignment="center" Margin="-128,192,0,0" VerticalAlignment="Top"/>
         <Button x:Name="mainwindowButtonConnexion" Content="Connexion" HorizontalAlignment="center" Margin="0,256,0,0" VerticalAlignment="Top" Width="75"/>
