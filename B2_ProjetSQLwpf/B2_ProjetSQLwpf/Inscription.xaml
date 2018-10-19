@@ -14,7 +14,7 @@
         <TextBox x:Name="InscriptionTextBoxCp" HorizontalAlignment="Left" Height="23" Margin="25,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
         <TextBox x:Name="InscriptionTextBoxVille" HorizontalAlignment="Left" Height="23" Margin="212,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <TextBox x:Name="InscriptionTextBoxTel" HorizontalAlignment="Left" Height="23" Margin="212,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="InscriptionTextBoxMail" HorizontalAlignment="Left" Height="23" Margin="212,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" TextChanged="InscriptionTextBoxMail_TextChanged"/>
+        <TextBox x:Name="InscriptionTextBoxMail" HorizontalAlignment="Left" Height="23" Margin="212,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <PasswordBox x:Name="InscriptionTextBoxMdp" HorizontalAlignment="Left" Margin="212,259,0,0" VerticalAlignment="Top" Width="158"/>
         <TextBox x:Name="InscriptionTextBoxSolde" HorizontalAlignment="Left" Height="23" Margin="212,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <Label x:Name="InscriptionLabelNom" Content="Nom" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top"/>
