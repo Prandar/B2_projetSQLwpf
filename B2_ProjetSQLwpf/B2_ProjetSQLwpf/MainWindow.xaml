@@ -13,7 +13,7 @@
         <Button x:Name="mainwindowButtonConnexion" Content="Connexion" HorizontalAlignment="center" Margin="0,256,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="mainwindowButtonInscription" Content="Inscription" HorizontalAlignment="center" Margin="0,320,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="mainwindowTextboxLogin" HorizontalAlignment="center" Height="23" Margin="192,132,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="mainwindowTextboxMdp" HorizontalAlignment="Center" Height="23" Margin="192,196,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="mainwindowTextboxMdp" HorizontalAlignment="Center" Height="23" Margin="192,196,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="mainwindowTextboxMdp_TextChanged"/>
 
     </Grid>
 </Window>
