@@ -53,6 +53,7 @@ namespace B2_ProjetSQLwpf
             com.Parameters.AddWithValue("@mail", InscriptionTextBoxMail).Value = InscriptionTextBoxMail.Text;
             com.Parameters.AddWithValue("@solde", InscriptionTextBoxSolde).Value = InscriptionTextBoxSolde.Text;
             Console.WriteLine("@nom");
+
             com.ExecuteNonQuery();
             MessageBox.Show("Vous êtes bien inscrit :)");
             

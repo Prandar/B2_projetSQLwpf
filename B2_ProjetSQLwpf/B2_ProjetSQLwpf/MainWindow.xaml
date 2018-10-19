@@ -10,7 +10,7 @@
         <Label x:Name="mainwindowLabelBienvenue" Content="Bienvenue !!" HorizontalAlignment="Center" Margin="0,32,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="mainwindowLabelLogin" Content="Login" HorizontalAlignment="center" Margin="-128,128,0,0" VerticalAlignment="Top"/>
         <Label x:Name="mainwindowLabelMdp" Content="Mdp" HorizontalAlignment="center" Margin="-128,192,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="mainwindowButtonConnexion" Content="Connexion" HorizontalAlignment="center" Margin="0,256,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="mainwindowButtonConnexion" Content="Connexion" HorizontalAlignment="center" Margin="0,256,0,0" VerticalAlignment="Top" Width="75" Click="mainwindowButtonConnexion_Click"/>
         <Button x:Name="mainwindowButtonInscription" Content="Inscription" HorizontalAlignment="center" Margin="0,320,0,0" VerticalAlignment="Top" Width="75" Click="mainwindowButtonInscription_Click"/>
         <TextBox x:Name="mainwindowTextboxLogin" HorizontalAlignment="center" Height="23" Margin="192,132,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="mainwindowTextboxMdp" HorizontalAlignment="Center" Height="23" Margin="192,196,115.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="mainwindowTextboxMdp_TextChanged"/>
