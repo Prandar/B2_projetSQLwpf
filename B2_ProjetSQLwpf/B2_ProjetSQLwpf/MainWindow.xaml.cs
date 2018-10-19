@@ -29,5 +29,11 @@ namespace B2_ProjetSQLwpf
         {
 
         }
+
+        private void mainwindowButtonInscription_Click(object sender, RoutedEventArgs e)
+        {
+            Inscription f = new Inscription();
+            f.Show();
+        }
     }
 }

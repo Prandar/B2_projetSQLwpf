@@ -16,7 +16,7 @@
         <TextBox x:Name="InscriptionTextBoxTel" HorizontalAlignment="Left" Height="23" Margin="212,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <TextBox x:Name="InscriptionTextBoxMail" HorizontalAlignment="Left" Height="23" Margin="212,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" TextChanged="InscriptionTextBoxMail_TextChanged"/>
         <PasswordBox x:Name="InscriptionTextBoxMdp" HorizontalAlignment="Left" Margin="212,259,0,0" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="InscriptionTextBoxSolde" HorizontalAlignment="Left" Height="23" Margin="212,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" TextChanged="soldeText_TextChanged"/>
+        <TextBox x:Name="InscriptionTextBoxSolde" HorizontalAlignment="Left" Height="23" Margin="212,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <Label x:Name="InscriptionLabelNom" Content="Nom" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="InscriptionLabelPrenom" Content="Prenom" HorizontalAlignment="Left" Margin="75,85,0,0" VerticalAlignment="Top"/>
         <Label x:Name="InscriptionLabelAdresse1" Content="Adresse1" HorizontalAlignment="Left" Margin="75,159,0,0" VerticalAlignment="Top"/>
@@ -27,10 +27,7 @@
         <Label x:Name="InscriptionLabelMail" Content="Mail" HorizontalAlignment="Left" Margin="265,157,0,0" VerticalAlignment="Top"/>
         <Label x:Name="InscriptionLabelMdp" Content="Mot de passe" HorizontalAlignment="Left" Margin="250,228,0,0" VerticalAlignment="Top"/>
         <Label x:Name="InscriptionLabelSolde" Content="Solde" HorizontalAlignment="Left" Margin="275,299,0,0" VerticalAlignment="Top"/>
-<<<<<<< .mine
         <Image HorizontalAlignment="Left" Height="125" Margin="438,0,0,277" VerticalAlignment="Bottom" Width="329" Source="..\Image\Inscription.png"/>
-=======
-        <Image HorizontalAlignment="Left" Height="67" Margin="510,159,0,0" VerticalAlignment="Top" Width="188" Source="..\Image\inscription.png"/>
->>>>>>> .theirs
+        <Button x:Name="InscriptionButtonConnexion" Content="Connexion" HorizontalAlignment="Left" Height="40" Margin="504,313,0,0" VerticalAlignment="Top" Width="203" Click="InscriptionButtonConnexion_Click"/>
     </Grid>
 </Window>
