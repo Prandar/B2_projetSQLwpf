@@ -10,21 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace B2_ProjetSQLwpf
 {
     /// <summary>
-    /// Logique d'interaction pour Inscription.xaml
+    /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class Inscription : Window
+    public partial class MainWindow : Window
     {
-        public Inscription()
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void InscriptionTextBoxMail_TextChanged(object sender, TextChangedEventArgs e)
+        private void mainwindowTextboxMdp_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
