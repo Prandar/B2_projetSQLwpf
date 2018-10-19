@@ -34,6 +34,7 @@ namespace B2_ProjetSQLwpf
 
         private void InscriptionButtonConnexion_Click(object sender, RoutedEventArgs e)
         {
+            //creation d'une variable de connection
             string connetionString = null;
             SqlConnection cnn;
             connetionString = "Data Source=192.168.236.129;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
