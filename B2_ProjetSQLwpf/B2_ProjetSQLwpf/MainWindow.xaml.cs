@@ -40,7 +40,7 @@ namespace B2_ProjetSQLwpf
 
         private void mainwindowButtonConnexion_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Data Source=192.168.236.129;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+            string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
             SqlConnection connectionSQL = new SqlConnection(connectionString);
             
             try
@@ -49,16 +49,39 @@ namespace B2_ProjetSQLwpf
             }
             catch
             {
-                MessageBox.Show("Erreur de connection a ala BDD");
+                MessageBox.Show("Erreur de connection a la BDD");
+            }
+            //SqlCommand cmd = new SqlCommand("SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'", connectionSQL);
+            SqlCommand cmd = connectionSQL.CreateCommand();
+            cmd.CommandText = "SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'";
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                MessageBox.Show("Good");
+            }
+            else
+            {
+                MessageBox.Show("pas bien");
             }
 
-            string query = "SELECT * FROM utilisateur WHERE mail = @mail AND mdp = @mdp";
-            SqlCommand commandSQL = new SqlCommand(query, connectionSQL);
-            commandSQL.CommandType = CommandType.Text;
+            /*while (dataReader.Read())
+            {
+                Console.WriteLine(dataReader["mail_u"]);
+            }*/
 
-            commandSQL.ExecuteNonQuery();
 
-            MessageBox.Show(commandSQL.ExecuteNonQuery().ToString());
+            /*DataTable dt = new DataTable();
+            sda.Fill(dt);
+            //Console.WriteLine(dt.Rows[0][0].ToString());
+            if (dt.Rows[0][0].ToString() == "1")
+            {
+                MessageBox.Show("La connection a réussi");
+            }
+            else
+            {
+                MessageBox.Show("La connection a échouer");
+            }*/
         }
     }
 }

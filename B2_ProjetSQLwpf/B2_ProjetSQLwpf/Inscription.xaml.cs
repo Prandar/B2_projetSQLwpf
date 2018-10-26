@@ -37,7 +37,7 @@ namespace B2_ProjetSQLwpf
             //creation d'une variable de connection
             string connetionString = null;
             SqlConnection cnn;
-            connetionString = "Data Source=192.168.236.129;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+            connetionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
             cnn = new SqlConnection(connetionString);
             cnn.Open();
             SqlCommand com = new SqlCommand("Inscription", cnn);
