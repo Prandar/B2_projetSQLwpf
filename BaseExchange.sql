@@ -90,3 +90,6 @@ constraint PK_Statue primary key (id_st)
 
 
 
+select * from utilisateur where mail_u = 'antonin@live.fr' and mdp_u = 'antonin'
+delete from utilisateur where id_u = 3
+

@@ -40,7 +40,16 @@ namespace B2_ProjetSQLwpf
             //connetionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
             connetionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa; Password=abcd4ABCD";
             cnn = new SqlConnection(connetionString);
-            cnn.Open();
+
+            try
+            {
+                cnn.Open();
+            }
+            catch
+            {
+                MessageBox.Show("La connection à la base de données a échoué");
+            }
+            
             SqlCommand com = new SqlCommand("Inscription", cnn);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@nom", InscriptionTextBoxNom).Value = InscriptionTextBoxNom.Text;
@@ -56,7 +65,15 @@ namespace B2_ProjetSQLwpf
             Console.WriteLine("@nom");
 
             com.ExecuteNonQuery();
-            MessageBox.Show("Vous êtes bien inscrit :)");
+            try
+            {
+                MessageBox.Show("Vous êtes bien inscrit :)");
+            }
+            catch
+            {
+                MessageBox.Show("Une erreur c'est produite");
+            }
+            
             
             cnn.Close();
         }

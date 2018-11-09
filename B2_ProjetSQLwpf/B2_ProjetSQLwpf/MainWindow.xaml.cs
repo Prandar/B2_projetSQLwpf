@@ -59,7 +59,8 @@ namespace B2_ProjetSQLwpf
 
             if (dataReader.Read())
             {
-                MessageBox.Show("Good");
+                Accueil accueil = new Accueil();
+                accueil.Show();
             }
             else
             {
