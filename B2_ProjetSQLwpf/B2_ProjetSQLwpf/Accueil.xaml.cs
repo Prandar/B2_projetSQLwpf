@@ -39,20 +39,8 @@ namespace B2_ProjetSQLwpf
 
         public SqlDataReader RechercheProduit (string textrecherche)
         {
-            //string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-            string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-            SqlConnection connectionSQL = new SqlConnection(connectionString);
 
-            try
-            {
-                connectionSQL.Open();
-            }
-            catch
-            {
-                MessageBox.Show("Erreur de connection a la BDD");
-            }
-            SqlCommand cmd = connectionSQL.CreateCommand();
-
+            string commandesql = "SELECT * FROM produit WHERE";
             string[] motsderecherche = textrecherche.Split(' ');
             if (String.IsNullOrEmpty(motsderecherche[0]))
             {
@@ -61,7 +49,6 @@ namespace B2_ProjetSQLwpf
             else if (motsderecherche.Length >= 1)
             {
                 int index = 1;
-                string commandesql = "SELECT * FROM produit WHERE";
                 foreach (string mot in motsderecherche)
                 {
                     if (index < motsderecherche.Length)
@@ -74,11 +61,10 @@ namespace B2_ProjetSQLwpf
                         commandesql += " nom_prod LIKE '%" + mot + "%'";
                     }
                 }
-                cmd.CommandText = commandesql;
             }
 
-            SqlDataReader dataReader = cmd.ExecuteReader();
-            if (dataReader.Read())
+            SqlDataReader dtreader = Sql.DataReader(commandesql);
+            if (dtreader.Read())
             {
                 MessageBox.Show("trouvé frere ! ! !");
             }
@@ -87,7 +73,7 @@ namespace B2_ProjetSQLwpf
                 MessageBox.Show("pas trouver gros");
             }
 
-            return dataReader;
+            return dtreader;
         }
     }
 }
