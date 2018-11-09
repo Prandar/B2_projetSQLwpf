@@ -25,6 +25,8 @@ namespace B2_ProjetSQLwpf
         public MainWindow()
         {
             InitializeComponent();
+            Sql.OpenConnexion();
+
         }
 
         private void mainwindowTextboxMdp_TextChanged(object sender, TextChangedEventArgs e)
@@ -40,31 +42,18 @@ namespace B2_ProjetSQLwpf
 
         private void mainwindowButtonConnexion_Click(object sender, RoutedEventArgs e)
         {
-            //string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-            string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-            SqlConnection connectionSQL = new SqlConnection(connectionString);
-            
-            try
-            {
-                connectionSQL.Open();
-            }
-            catch
-            {
-                MessageBox.Show("Erreur de connection a la BDD");
-            }
             //SqlCommand cmd = new SqlCommand("SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'", connectionSQL);
-            SqlCommand cmd = connectionSQL.CreateCommand();
-            cmd.CommandText = "SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'";
-            SqlDataReader dataReader = cmd.ExecuteReader();
+            SqlDataReader dataReader = Sql.DataReader("SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'");
 
             if (dataReader.Read())
             {
+                CurrentUser.UserName = mainwindowTextboxLogin.Text;
                 Accueil accueil = new Accueil();
                 accueil.Show();
             }
             else
             {
-                MessageBox.Show("pas bien");
+                MessageBox.Show("Mail ou mot de passe incorrect");
             }
 
             /*while (dataReader.Read())
@@ -85,5 +74,10 @@ namespace B2_ProjetSQLwpf
                 MessageBox.Show("La connection a échouer");
             }*/
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Sql.ClosConnexion();
+    }
     }
 }

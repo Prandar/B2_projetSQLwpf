@@ -33,24 +33,8 @@ namespace B2_ProjetSQLwpf
         }
 
         private void InscriptionButtonConnexion_Click(object sender, RoutedEventArgs e)
-        {
-            //creation d'une variable de connection
-            string connetionString = null;
-            SqlConnection cnn;
-            //connetionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-            connetionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa; Password=abcd4ABCD";
-            cnn = new SqlConnection(connetionString);
-
-            try
-            {
-                cnn.Open();
-            }
-            catch
-            {
-                MessageBox.Show("La connection à la base de données a échoué");
-            }
-            
-            SqlCommand com = new SqlCommand("Inscription", cnn);
+        {             
+            SqlCommand com = new SqlCommand("Inscription", Sql.con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@nom", InscriptionTextBoxNom).Value = InscriptionTextBoxNom.Text;
             com.Parameters.AddWithValue("@prenom", InscriptionTextBoxPrenom).Value = InscriptionTextBoxPrenom.Text;
@@ -73,9 +57,6 @@ namespace B2_ProjetSQLwpf
             {
                 MessageBox.Show("Une erreur c'est produite");
             }
-            
-            
-            cnn.Close();
         }
     }
 }
