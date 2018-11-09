@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace B2_ProjetSQLwpf
 {
@@ -22,16 +23,18 @@ namespace B2_ProjetSQLwpf
         public Accueil()
         {
             InitializeComponent();
+            labelBonjour.Content = "Bonjour " + CurrentUser.UserName;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
-        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void accueilBoutonAfficher_Click(object sender, RoutedEventArgs e)
         {
-
+            Sql.DataReader("SELECT nom_prod, nom_u, description_prod, libelle_cat, etat_prod, prix_prod from produit p, categorie c where p.id_cat = c.id_cat ");
+            accueilCanvasDatagrid.items
         }
     }
 }

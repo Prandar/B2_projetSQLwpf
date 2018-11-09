@@ -7,29 +7,29 @@
         mc:Ignorable="d"
         Title="Accueil" Height="450" Width="800">
     <Grid>
-        <DataGrid.Columns>
-            <DataGrid.
-        </DataGrid.Columns>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <Canvas x:Name="accueilCanvasUiTopBar" Grid.ColumnSpan="2">
             <Rectangle Fill="#FFFFFF" HorizontalAlignment="Left" Height="64" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="794"/>
-            <Label Content="Bonjour" Canvas.Top="10" Height="32" Width="84" FontSize="18" Canvas.Left="10"/>
+            <Label x:Name="labelBonjour" Content="" Canvas.Top="10" Height="32" Width="346" FontSize="18" Canvas.Left="10"/>
             <Button Content="Déconnexion" Canvas.Left="646" Canvas.Top="10" Width="138" Height="32" FontSize="18"/>
             <TextBlock x:Name="AccueilTextBlockNom" Height="32" Canvas.Left="99" TextWrapping="Wrap" Text="" Canvas.Top="10" Width="101"/>
         </Canvas>
         <Canvas x:Name="accueilCanvasDatagrid" Grid.ColumnSpan="2"/>
         <Canvas x:Name="accueilCanvasModel" Grid.ColumnSpan="2">
-            <Label x:Name="accueilLabelNomProd" Content="nom" Canvas.Left="246" Canvas.Top="99" FontSize="16"/>
-            <Label x:Name="accueilLabelVendeurProd" Content="user vendeur" Canvas.Left="246" Canvas.Top="131"/>
-            <Label x:Name="accueilLabelPrixProd" Content="prix" Canvas.Left="351" Canvas.Top="190" RenderTransformOrigin="0.571,0.483"/>
-            <Label x:Name="accueilLabelEtatProd" Content="etat" Canvas.Left="384" Canvas.Top="162"/>
-            <Label x:Name="accueilLabelCategorieProd" Content="categorie" Canvas.Left="384" Canvas.Top="99"/>
-            <TextBox x:Name="accueilLabelDescriptionProd" Height="23" Canvas.Left="246" TextWrapping="Wrap" Text="description" Canvas.Top="162" Width="120"/>
-            <Label x:Name="accueilLabelStatusProd" Content="status" Canvas.Left="384" Canvas.Top="131"/>
-            <DataGrid Height="212" Canvas.Left="34" Canvas.Top="76" Width="192" SelectionChanged="DataGrid_SelectionChanged_1"/>
+            <DataGrid Height="212" Canvas.Left="34" Canvas.Top="76" Width="192" SelectionChanged="DataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Path=nom}"/>
+                    <DataGridTextColumn Header="Vendeur" Binding="{Binding Path=vendeur}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Path=des}"/>
+                    <DataGridTextColumn Header="Catégorie" Binding="{Binding Path=categorie}"/>
+                    <DataGridCheckBoxColumn Header="Etat" Binding="{Binding Path=etat}"/>
+                    <DataGridCheckBoxColumn Header="Prix" Binding="{Binding Path=prix}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="accueilBoutonAfficher" Content="Afficher" Canvas.Left="291" Canvas.Top="101" Width="92" Click="accueilBoutonAfficher_Click"/>
         </Canvas>
     </Grid>
 </Window>
