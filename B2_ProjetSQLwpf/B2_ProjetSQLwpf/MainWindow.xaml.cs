@@ -40,7 +40,8 @@ namespace B2_ProjetSQLwpf
 
         private void mainwindowButtonConnexion_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+            //string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+            string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
             SqlConnection connectionSQL = new SqlConnection(connectionString);
             
             try
