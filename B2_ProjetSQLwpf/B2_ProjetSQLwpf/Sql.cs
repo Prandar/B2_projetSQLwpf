@@ -42,8 +42,8 @@ namespace B2_ProjetSQLwpf
 
         public static SqlDataReader DataReader(string Query)
         {
-            Sql.ClosConnexion();
-            Sql.OpenConnexion();
+            con.Close();
+            con.Open();
             SqlCommand cmd = new SqlCommand(Query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             return dr;
