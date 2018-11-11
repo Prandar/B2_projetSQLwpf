@@ -91,10 +91,10 @@ namespace B2_ProjetSQLwpf
             }            return dtreader;
         }
 
-        public SqlDataReader RechercheProduit(string textrecherche)
+        public string RechercheProduit(string textrecherche)
         {
 
-            string commandesql = "SELECT * FROM produit WHERE";
+            string commandesql = "SELECT nom_prod as Nom, nom_u, description_prod, libelle_cat, etat_prod, prix_prod FROM utilisateur u, produit p, categorie c WHERE u.id_u = p.id_u and c.id_cat = p.id_cat and";
             string[] motsderecherche = textrecherche.Split(' ');
             if (String.IsNullOrEmpty(motsderecherche[0]))
             {
@@ -116,8 +116,8 @@ namespace B2_ProjetSQLwpf
                     }
                 }
             }
-            
 
+            SqlDataReader dataReader = Sql.DataReader(commandesql);
             if (dataReader.Read())            {
                 MessageBox.Show("trouvé frere ! ! !");
             }
@@ -125,6 +125,7 @@ namespace B2_ProjetSQLwpf
             {
                 MessageBox.Show("pas trouver gros");
             }
-return commandesql;        }
+            return commandesql;
+        }
     }
 }

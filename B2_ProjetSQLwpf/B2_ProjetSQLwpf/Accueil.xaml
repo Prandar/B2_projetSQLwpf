@@ -15,7 +15,7 @@
             <TextBox x:Name="accueilTextboxBarDeRecherche" Height="24" Canvas.Left="391" TextWrapping="Wrap" Canvas.Top="18" Width="120"/>
         </Canvas>
         <Canvas x:Name="accueilCanvasModel" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
-            <DataGrid x:Name="accueilDataGrid" Height="212" Canvas.Left="63" Canvas.Top="77" Width="412" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid x:Name="accueilDataGrid" Height="212" Canvas.Left="10" Canvas.Top="77" Width="772" SelectionChanged="DataGrid_SelectionChanged">
             </DataGrid>
             <Button x:Name="accueilBoutonAfficher" Content="Afficher" Canvas.Left="520" Canvas.Top="20" Width="92" Click="accueilBoutonAfficher_Click"/>
         </Canvas>
