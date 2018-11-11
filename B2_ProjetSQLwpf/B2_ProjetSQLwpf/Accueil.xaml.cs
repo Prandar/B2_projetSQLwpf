@@ -26,7 +26,7 @@ namespace B2_ProjetSQLwpf
             labelBonjour.Content = "Bonjour " + CurrentUser.UserName;
             //RechercheProduit("patate moulinex truc");
             //AfficherToutProduits();
-            AjouterProduit("Moulin à café", 15, "C:\\test", "Le moulin a café de mon coloc", 1, 1);
+            //AjouterProduit("Moulin à café", 15, "C:\\test", "Le moulin a café de mon coloc", 1, 1);
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -36,40 +36,42 @@ namespace B2_ProjetSQLwpf
 
         private void accueilBoutonAfficher_Click(object sender, RoutedEventArgs e)
         {
-            Sql.DataReader("SELECT nom_prod, nom_u, description_prod, libelle_cat, etat_prod, prix_prod from produit p, categorie c where p.id_cat = c.id_cat ");
+            //Sql.DataReader(" SELECT nom_prod, id_u, description_prod, libelle_cat, etat_prod, prix_prod from produit p, categorie c where p.id_cat = c.id_cat");
+            Sql.DataReader(" SELECT nom_prod, nom_u, description_prod, libelle_cat, etat_prod, prix_prod from produit p, categorie c where p.id_cat = c.id_cat");
         }
 
-        public bool AjouterProduit(string nom_prod, int prix_prod, string photo_prod, string description_prod, int id_u, int id_cat)
-        {
-            //soi en sql pure ou avec une procedure stocker
+        //public bool AjouterProduit(string nom_prod, int prix_prod, string photo_prod, string description_prod, int id_u, int id_cat)
+        //{
+        //    //soi en sql pure ou avec une procedure stocker
 
-            string commandesql = "INSERT INTO produit (nom_prod, prix_prod, etat_prod, photo_prod, description_prod, id_u, id_cat) " +
-                "VALUES('" +nom_prod + "', " +prix_prod +", 'En Vente', '" +photo_prod +"', '" +description_prod +"', " +id_u +", " + id_cat +") ";
+        //    string commandesql = "INSERT INTO produit (nom_prod, prix_prod, etat_prod, photo_prod, description_prod, id_u, id_cat) " +
+        //        "VALUES('" + nom_prod + "', " + prix_prod + ", 'En Vente', '" + photo_prod + "', '" + description_prod + "', " + id_u + ", " + id_cat + ") ";
 
-            SqlCommand com = new SqlCommand("AjouterProduit", Sql.con);
-            //com.CommandType = CommandType.StoredProcedure;
-            //com.Parameters.AddWithValue("@nom_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
-            //com.Parameters.AddWithValue("@prix_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
-            //com.Parameters.AddWithValue("@etat_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
-            //com.Parameters.AddWithValue("@photo_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
-            //com.Parameters.AddWithValue("@description_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
-            //com.Parameters.AddWithValue("@id_u", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
-            //com.Parameters.AddWithValue("@id_cat", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
-            //Console.WriteLine("@nom_prod");
+        //    SqlCommand com = new SqlCommand("AjouterProduit", Sql.con);
+        //    //com.CommandType = CommandType.StoredProcedure;
+        //    //com.Parameters.AddWithValue("@nom_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
+        //    //com.Parameters.AddWithValue("@prix_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
+        //    //com.Parameters.AddWithValue("@etat_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
+        //    //com.Parameters.AddWithValue("@photo_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
+        //    //com.Parameters.AddWithValue("@description_prod", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
+        //    //com.Parameters.AddWithValue("@id_u", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
+        //    //com.Parameters.AddWithValue("@id_cat", xoxoxoxoxo).Value = xoxoxoxoxo.Text;
+        //    //Console.WriteLine("@nom_prod");
 
-            com.ExecuteNonQuery();
-            try
-            {
-                MessageBox.Show("Vous êtes bien inscrit :)");
-                return true;
-            }
-            catch
-            {
-                MessageBox.Show("Une erreur c'est produite");
-                return false;
-            }
+        //    com.ExecuteNonQuery();
+        //    try
+        //    {
+        //        MessageBox.Show("Vous êtes bien inscrit :)");
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("Une erreur c'est produite");
+        //        return false;
+        //    }
+        //}
 
-            public SqlDataReader AfficherToutProduits()
+        public SqlDataReader AfficherToutProduits()
         {
 
             string commandesql = "SELECT * FROM produit WHERE etat_prod = 'En Vente'";

@@ -7,11 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="112*"/>
-            <ColumnDefinition Width="39*"/>
-        </Grid.ColumnDefinitions>
         <Label x:Name="mainwindowLabelBienvenue" Content="Bienvenue !!" HorizontalAlignment="Center" Margin="106,32,138,0" VerticalAlignment="Top" FontSize="36" Grid.Column="1"/>
         <Label x:Name="mainwindowLabelLogin" Content="Login" HorizontalAlignment="center" Margin="124,128,284,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label x:Name="mainwindowLabelMdp" Content="Mdp" HorizontalAlignment="center" Margin="126,192,286,0" VerticalAlignment="Top" Grid.Column="1"/>
