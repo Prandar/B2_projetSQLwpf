@@ -18,8 +18,8 @@ namespace B2_ProjetSQLwpf
 {
     static class Sql
     {
-        //public static string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-        public static string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+        public static string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+        //public static string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
         public static SqlConnection con;
 
         public static void OpenConnexion()
@@ -42,6 +42,8 @@ namespace B2_ProjetSQLwpf
 
         public static SqlDataReader DataReader(string Query)
         {
+            Sql.ClosConnexion();
+            Sql.OpenConnexion();
             SqlCommand cmd = new SqlCommand(Query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             return dr;

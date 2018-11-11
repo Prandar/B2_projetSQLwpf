@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace B2_ProjetSQLwpf
 {
@@ -34,25 +35,19 @@ namespace B2_ProjetSQLwpf
 
         private void accueilBoutonAfficher_Click(object sender, RoutedEventArgs e)
         {
-            Sql.DataReader("SELECT nom_prod, nom_u, description_prod, libelle_cat, etat_prod, prix_prod from produit p, categorie c where p.id_cat = c.id_cat ");
+            string sql = RechercheProduit(accueilTextboxBarDeRecherche.Text);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, Sql.connectionString);
+            DataTable dt = new DataTable("utilisateur, produit");
+            sda.Fill(dt);
+            accueilDataGrid.ItemsSource = dt.DefaultView;
+
+
         }
 
-        public SqlDataReader RechercheProduit (string textrecherche)
+        public string RechercheProduit (string textrecherche)
         {
-            //string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-            string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-            SqlConnection connectionSQL = new SqlConnection(connectionString);
-
-            try
-            {
-                connectionSQL.Open();
-            }
-            catch
-            {
-                MessageBox.Show("Erreur de connection a la BDD");
-            }
-            SqlCommand cmd = connectionSQL.CreateCommand();
-
+            string commandesql = "SELECT nom_prod as Nom, nom_u as Vendeur, description_prod as Description, libelle_cat as Catégorie, etat_prod  as Etat, prix_prod as Prix " +
+                                 "FROM utilisateur u, produit p, categorie c WHERE u.id_u = p.id_u and c.id_cat = p.id_cat and";
             string[] motsderecherche = textrecherche.Split(' ');
             if (String.IsNullOrEmpty(motsderecherche[0]))
             {
@@ -61,7 +56,6 @@ namespace B2_ProjetSQLwpf
             else if (motsderecherche.Length >= 1)
             {
                 int index = 1;
-                string commandesql = "SELECT * FROM produit WHERE";
                 foreach (string mot in motsderecherche)
                 {
                     if (index < motsderecherche.Length)
@@ -74,11 +68,11 @@ namespace B2_ProjetSQLwpf
                         commandesql += " nom_prod LIKE '%" + mot + "%'";
                     }
                 }
-                cmd.CommandText = commandesql;
             }
+            
 
-            SqlDataReader dataReader = cmd.ExecuteReader();
-            if (dataReader.Read())
+            SqlDataReader dataRead = Sql.DataReader(commandesql);
+            if (dataRead.Read())
             {
                 MessageBox.Show("trouvé frere ! ! !");
             }
@@ -86,8 +80,7 @@ namespace B2_ProjetSQLwpf
             {
                 MessageBox.Show("pas trouver gros");
             }
-
-            return dataReader;
+            return commandesql;
         }
     }
 }

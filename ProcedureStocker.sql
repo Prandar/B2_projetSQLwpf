@@ -20,3 +20,13 @@ create proc Inscription(
  select * from utilisateur
 
  drop proc Inscription
+
+
+ INSERT INTO categorie(libelle_cat)
+VALUES ('Cuisine - Petit déjeuner');
+
+INSERT INTO produit ( nom_prod, prix_prod, etat_prod, photo_prod, description_prod, id_u, id_cat)
+VALUES ('Grille-pain MOULINEX',  20.50, 'En Vente', 'B2_ProjetSQLwpf\Image\produits\moulinex_rp_09112018.jpg',
+ 'Je vend mon grille pain, tres bon etat! A partir de 20€50.', 2, 1);
+
+ select * from produit
