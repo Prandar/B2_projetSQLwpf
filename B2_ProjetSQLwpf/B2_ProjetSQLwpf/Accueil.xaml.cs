@@ -128,6 +128,45 @@ namespace B2_ProjetSQLwpf
             } 
         }
 
+        public bool EnvoyerMessage()
+        {
+            string commandesql = "INSERT into messager(contenue_m, id_u, id_u_destinataire) values('Je pense que 17€ est un prix acceptable', 6, 1)";
+            return true;
+        }
+
+        public string AfficherMessage(int id_u_expe, int id_u_dest)
+        {
+            string commandesql = "Select contenue_m, nom_u, prenom_u From messager M, utilisateur U where M.id_u = " +id_u_expe + " AND U.id_u = " + id_u_dest + " OR M.id_u = " + id_u_expe + " AND U.id_u = " + id_u_dest ;
+
+            SqlDataReader dataReader = Sql.DataReader(commandesql);
+            if (dataReader.Read())
+            {
+                MessageBox.Show("trouvé GG!");
+            }
+            else
+            {
+                MessageBox.Show("pas trouvé /ff?");
+            }
+            return commandesql;
+        }
+
+        public bool AcheterProd(int id_prod)
+        {
+            string commandesql = "UPDATE produit SET etat_prod = 'En Négociation' Where id_prod =" + id_prod;
+
+            SqlDataReader dataReader = Sql.DataReader(commandesql);
+            if (dataReader.Read())
+            {
+                MessageBox.Show("Vous avez acheté, Attendez la validation du vendeur");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("erreur ... deja acheté par quelqu'un d'autre ?");
+                return false;
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddProduit addProduit = new AddProduit();
