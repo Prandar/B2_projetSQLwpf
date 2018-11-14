@@ -32,9 +32,10 @@ libelle_fi varchar(50) not null,
 constraint PK_Filtre primary key (id_fi)
 )
 
+
 create table categorie(
-id_cat int identity (1,1) not null,
-libelle_cat varchar(50) not null,
+id_cat int identity(1,1) NOT NULL,
+libelle_cat varchar(100) NOT NULL,
 constraint PK_Categorie primary key (id_cat)
 )
 
@@ -93,3 +94,9 @@ constraint PK_Statue primary key (id_st)
 select * from utilisateur where mail_u = 'antonin@live.fr' and mdp_u = 'antonin'
 delete from utilisateur where id_u = 3
 
+
+SELECT nom_prod as Nom, nom_u, description_prod, libelle_cat, etat_prod, prix_prod FROM utilisateur u, produit p, categorie c WHERE u.id_u = p.id_u and c.id_cat = p.id_cat
+
+select * from categorie
+
+insert into categorie values ('Cuisine'), ('Electroménager'), ('Chambre')

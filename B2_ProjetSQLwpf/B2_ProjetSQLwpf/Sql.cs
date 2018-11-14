@@ -16,13 +16,13 @@ using System.Data.SqlClient;
 
 namespace B2_ProjetSQLwpf
 {
-    static class Sql
+    public class Sql
     {
-        public static string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+        public string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
         //public static string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-        public static SqlConnection con;
+        public SqlConnection con;
 
-        public static void OpenConnexion()
+        public void OpenConnexion()
         {
             con = new SqlConnection(connectionString);
             try
@@ -35,21 +35,20 @@ namespace B2_ProjetSQLwpf
             }
         }
 
-        public static void ClosConnexion()
+        public void ClosConnexion()
         {
-            con.Close();
+            try
+            {
+                if (con != null && con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Une erreur grave vient de ce passer");
+            }
+               
         }
-
-        public static SqlDataReader DataReader(string Query)
-        {
-            con.Close();
-            con.Open();
-            SqlCommand cmd = new SqlCommand(Query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            return dr;
-        }
-
-    
-
     }
 }

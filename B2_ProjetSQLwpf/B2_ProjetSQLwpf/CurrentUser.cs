@@ -9,6 +9,7 @@ namespace B2_ProjetSQLwpf
     public static class CurrentUser
     {
        public static string UserName { get; set; }
+       public static int IdUser { get; set; }
 
 
     }

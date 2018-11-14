@@ -18,6 +18,7 @@
             <DataGrid x:Name="accueilDataGrid" Height="212" Canvas.Left="10" Canvas.Top="77" Width="772" SelectionChanged="DataGrid_SelectionChanged">
             </DataGrid>
             <Button x:Name="accueilBoutonAfficher" Content="Afficher" Canvas.Left="520" Canvas.Top="20" Width="92" Click="accueilBoutonAfficher_Click"/>
+            <Button Content="Ajouter un produit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Click="Button_Click" Canvas.Left="254" Canvas.Top="353"/>
         </Canvas>
     </Grid>
 </Window>
