@@ -62,6 +62,7 @@
     <Compile Include="AddProduit.xaml.cs">
       <DependentUpon>AddProduit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data.cs" />
     <Compile Include="Panier.xaml.cs">
       <DependentUpon>Panier.xaml</DependentUpon>
     </Compile>

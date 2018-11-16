@@ -21,7 +21,6 @@ namespace B2_ProjetSQLwpf
     /// </summary>
     public partial class Accueil : Window
     {
-        public List<String> paniers = new List<string>();
 
         Sql sql = new Sql();
         public Accueil()
@@ -40,9 +39,9 @@ namespace B2_ProjetSQLwpf
             if (select != null)
             {
                 string nom = select["Nom"].ToString();
-                paniers.Add(nom);
+                Data.listpanier.Add(nom);
 
-                foreach (string item in paniers)
+                foreach (string item in Data.listpanier)
                 {
                     Console.WriteLine(item);
                 }

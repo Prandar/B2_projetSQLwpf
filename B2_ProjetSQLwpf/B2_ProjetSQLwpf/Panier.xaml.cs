@@ -32,7 +32,7 @@ namespace B2_ProjetSQLwpf
             
            Accueil accueil = new Accueil();
 
-            foreach (var item in accueil.paniers)
+            foreach (var item in Data.listpanier)
             {
                 Console.WriteLine("coucou foreach");
                 listPanierDataGrid.ItemsSource = item;
