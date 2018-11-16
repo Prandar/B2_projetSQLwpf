@@ -54,8 +54,11 @@ INSERT INTO produit ( nom_prod, prix_prod, etat_prod, photo_prod, description_pr
 VALUES ('Grille-pain MOULINEX',  20.50, 'En Vente', 'B2_ProjetSQLwpf\Image\produits\moulinex_rp_09112018.jpg',
  'Je vend mon grille pain, tres bon etat! A partir de 20€50.', 1, 1);
 
- select * from categorie
+ select * from produit
 
 
  SELECT Id_u = id_u FROM utilisateur WHERE mail_u = 'antonin@live.fr' AND mdp_u ='antonin'
  
+
+ SELECT nom_prod as Nom, nom_u as Vendeur, description_prod as Description, libelle_cat as Catégorie, etat_prod as Etat, prix_prod as Prix 
+ FROM utilisateur u, produit p, categorie c WHERE u.id_u = p.id_u and c.id_cat = p.id_cat and nom_prod like '%pain%' or nom_prod like '%grille%'

@@ -8,7 +8,7 @@ drop table produit;
 drop table possede;
 drop table achat;
 drop table messager;
-drop table courriel;
+
 
 create table utilisateur(
 id_u int identity (1,1) not null,
@@ -43,7 +43,7 @@ create table produit(
 id_prod int identity (1,1) not null,
 nom_prod varchar(100) not null,
 prix_prod float not null,
-etat_prod varchar(20) not null,
+etat_prod varchar(20) not null default ('En vente'),
 photo_prod varchar(250),
 description_prod varchar(250) not null,
 id_u int not null,
