@@ -21,15 +21,24 @@ namespace B2_ProjetSQLwpf
     /// </summary>
     public partial class Accueil : Window
     {
-
         Sql sql = new Sql();
         public Accueil()
         {
             InitializeComponent();
             labelBonjour.Content = "Bonjour " + CurrentUser.UserName;
+            string sqlProd = RechercheProduit("");
+            SqlDataAdapter sda = new SqlDataAdapter(sqlProd, sql.connectionString);
+            DataTable dt = new DataTable("utilisateur, produit");
+            sda.Fill(dt);
+            accueilDataGrid.ItemsSource = dt.DefaultView;
             //RechercheProduit("patate moulinex truc");
             //AfficherToutProduits();
             //AjouterProduit("Moulin à café", 15, "C:\\test", "Le moulin a café de mon coloc", 1, 1);
+            //Data.listpanier.Add("truc");
+            //Console.WriteLine( Data.listpanier.Count);
+            //EnleverProdList("truc");
+            //Console.WriteLine(Data.listpanier.Count);
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -117,11 +126,30 @@ namespace B2_ProjetSQLwpf
             return commandesql;
         }
 
-       /*public bool EnvoyerMessage()
+        public bool SupprimerProd(int AdminStatus, int id_prod)
         {
-            string commandesql = "INSERT into messager(contenue_m, id_u, id_u_destinataire) values('Je pense que 17€ est un prix acceptable', 6, 1)";
-            return true;
-        }*/
+            if (AdminStatus < 1)
+            {
+                MessageBox.Show("Vous n'avez pas le droit de supprimer ce produit");
+                return false;
+            }
+            else
+            {
+                string commandesql = "DELETE FROM produit WHERE id_prod = 2; " + id_prod;
+                return true;
+            }
+        }
+
+        public void EnleverProdList(string nomduprod)
+        {
+            Data.listpanier.Remove(nomduprod);
+        }
+
+        /*public bool EnvoyerMessage()
+         {
+             string commandesql = "INSERT into messager(contenue_m, id_u, id_u_destinataire) values('Je pense que 17€ est un prix acceptable', 6, 1)";
+             return true;
+         }*/
 
         public string AfficherMessage(int id_u_expe, int id_u_dest)
         {

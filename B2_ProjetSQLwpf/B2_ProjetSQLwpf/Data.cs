@@ -8,7 +8,6 @@ namespace B2_ProjetSQLwpf
 {
     static class Data
     {
-        public static List<string> listpanier = new List<string>(); 
-
+        public static List<string> listpanier = new List<string>();
     }
 }
