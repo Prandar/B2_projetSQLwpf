@@ -25,30 +25,19 @@ namespace B2_ProjetSQLwpf
         public void OpenConnexion()
         {
             con = new SqlConnection(connectionString);
-            try
-            {
-                con.Open();
-            }
-            catch
-            {
-                MessageBox.Show("La connection à la base de données a échoué");
-            }
+            con.Open();
         }
 
         public void ClosConnexion()
         {
-            try
+            if (con != null && con.State == ConnectionState.Open)
             {
-                if (con != null && con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
+                con.Close();
             }
-            catch
+            else
             {
                 MessageBox.Show("Une erreur grave vient de ce passer");
-            }
-               
+            }   
         }
     }
 }

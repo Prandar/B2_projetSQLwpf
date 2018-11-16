@@ -21,6 +21,8 @@ namespace B2_ProjetSQLwpf
     /// </summary>
     public partial class Accueil : Window
     {
+        public List<String> paniers = new List<string>();
+
         Sql sql = new Sql();
         public Accueil()
         {
@@ -33,138 +35,130 @@ namespace B2_ProjetSQLwpf
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DataGrid gd = (DataGrid)sender;
+            DataRowView select = gd.SelectedItem as DataRowView;
+            if (select != null)
+            {
+                string nom = select["Nom"].ToString();
+                paniers.Add(nom);
 
+                foreach (string item in paniers)
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
 
         private void accueilBoutonAfficher_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string sqlProduit = RechercheProduit(accueilTextboxBarDeRecherche.Text);
-                SqlDataAdapter sda = new SqlDataAdapter(sqlProduit, sql.connectionString);
-                DataTable dt = new DataTable("utilisateur, produit");
-                sda.Fill(dt);
-                accueilDataGrid.ItemsSource = dt.DefaultView;
-            }
-            catch
-            {
-                MessageBox.Show("Error.");
-            }
-            
+            string sqlProduit = RechercheProduit(accueilTextboxBarDeRecherche.Text);
+            SqlDataAdapter sda = new SqlDataAdapter(sqlProduit, sql.connectionString);
+            DataTable dt = new DataTable("utilisateur, produit");
+            sda.Fill(dt);
+            accueilDataGrid.ItemsSource = dt.DefaultView; 
+        }
+
+        private void buyProduitAccueilButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Panier panier = new Panier();
+            panier.Show();
         }
 
         public SqlDataReader AfficherToutProduits()
         {
-            try
+            string commandesql = "SELECT * FROM produit WHERE etat_prod = 'En Vente'";
+            SqlCommand cmd = new SqlCommand(commandesql, sql.con);
+            using (SqlDataReader dtreader = cmd.ExecuteReader())
             {
-                string commandesql = "SELECT * FROM produit WHERE etat_prod = 'En Vente'";
-                SqlCommand cmd = new SqlCommand(commandesql, sql.con);
-                using (SqlDataReader dtreader = cmd.ExecuteReader())
+                if (dtreader.Read())
                 {
-                    if (dtreader.Read())
-                    {
-                        MessageBox.Show("gagner");
-                        //MessageBox.Show(dtreader.GetString(1));
-                    }
-                    else
-                    {
-                        MessageBox.Show("perdu");
-                    }
-                    return dtreader;
+                    MessageBox.Show("gagner");
+                    //MessageBox.Show(dtreader.GetString(1));
                 }
+                else
+                {
+                    MessageBox.Show("perdu");
+                }
+                return dtreader;
             }
-            catch
-            {
-                throw new Exception();
-            }
-
-            
         }
 
         public string RechercheProduit(string textrecherche)
         {
-            try
+            sql.OpenConnexion();
+            string commandesql = "SELECT nom_prod as Nom, nom_u as Vendeur, description_prod as Description, libelle_cat as Catégorie, etat_prod as Etat, prix_prod as Prix " +
+                                 "FROM utilisateur u, produit p, categorie c WHERE u.id_u = p.id_u and c.id_cat = p.id_cat and ";
+            string[] motsderecherche = textrecherche.Split(' ');
+            int index = 1;
+            foreach (string mot in motsderecherche)
             {
-                string commandesql = "SELECT nom_prod as Nom, nom_u, description_prod, libelle_cat, etat_prod, prix_prod FROM utilisateur u, produit p, categorie c WHERE u.id_u = p.id_u and c.id_cat = p.id_cat and";
-                SqlCommand cmd = new SqlCommand(commandesql, sql.con);
-                string[] motsderecherche = textrecherche.Split(' ');
-                if (String.IsNullOrEmpty(motsderecherche[0]))
+                if (index < motsderecherche.Length)
                 {
-                    MessageBox.Show("erreur string de recherche");
+                    commandesql += " nom_prod LIKE '%" + mot + "%' OR";
+                    index++;
                 }
-                else if (motsderecherche.Length >= 1)
+                else
                 {
-                    int index = 1;
-                    foreach (string mot in motsderecherche)
-                    {
-                        if (index < motsderecherche.Length)
-                        {
-                            commandesql += " nom_prod LIKE '%" + mot + "%' OR";
-                            index++;
-                        }
-                        else
-                        {
-                            commandesql += " nom_prod LIKE '%" + mot + "%'";
-                        }
-                    }
-                }
-
-                using (SqlDataReader dataReader = cmd.ExecuteReader())
-                {
-                    if (dataReader.Read())
-                    {
-                        MessageBox.Show("trouvé frere ! ! !");
-                    }
-                    else
-                    {
-                        MessageBox.Show("pas trouver gros");
-                    }
-                    return commandesql;
+                    commandesql += " nom_prod LIKE '%" + mot + "%'";
                 }
             }
-            catch
+
+            SqlCommand cmd = new SqlCommand(commandesql, sql.con);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
             {
-                throw new Exception();
-            } 
+                MessageBox.Show("trouvé frere ! ! !");
+            }
+            else
+            {
+                MessageBox.Show("pas trouver gros");
+            }
+            return commandesql;
         }
 
-        public bool EnvoyerMessage()
+       /*public bool EnvoyerMessage()
         {
             string commandesql = "INSERT into messager(contenue_m, id_u, id_u_destinataire) values('Je pense que 17€ est un prix acceptable', 6, 1)";
             return true;
-        }
+        }*/
 
         public string AfficherMessage(int id_u_expe, int id_u_dest)
         {
             string commandesql = "Select contenue_m, nom_u, prenom_u From messager M, utilisateur U where M.id_u = " +id_u_expe + " AND U.id_u = " + id_u_dest + " OR M.id_u = " + id_u_expe + " AND U.id_u = " + id_u_dest ;
-
-            SqlDataReader dataReader = Sql.DataReader(commandesql);
-            if (dataReader.Read())
+            SqlCommand cmd = new SqlCommand(commandesql);
+            using (SqlDataReader dataReader = cmd.ExecuteReader())
             {
-                MessageBox.Show("trouvé GG!");
+                if (dataReader.Read())
+                {
+                    MessageBox.Show("trouvé GG!");
+                }
+                else
+                {
+                    MessageBox.Show("pas trouvé /ff?");
+                }
+                return commandesql;
             }
-            else
-            {
-                MessageBox.Show("pas trouvé /ff?");
-            }
-            return commandesql;
         }
 
         public bool AcheterProd(int id_prod)
         {
             string commandesql = "UPDATE produit SET etat_prod = 'En Négociation' Where id_prod =" + id_prod;
-
-            SqlDataReader dataReader = Sql.DataReader(commandesql);
-            if (dataReader.Read())
+            SqlCommand cmd = new SqlCommand(commandesql);
+            using (SqlDataReader dataReader = cmd.ExecuteReader())
             {
-                MessageBox.Show("Vous avez acheté, Attendez la validation du vendeur");
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("erreur ... deja acheté par quelqu'un d'autre ?");
-                return false;
-            }
+                if (dataReader.Read())
+                {
+                    MessageBox.Show("Vous avez acheté, Attendez la validation du vendeur");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("erreur ... deja acheté par quelqu'un d'autre ?");
+                    return false;
+                }
+            }  
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

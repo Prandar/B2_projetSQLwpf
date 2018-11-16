@@ -26,7 +26,7 @@ namespace B2_ProjetSQLwpf
         public MainWindow()
         {
             InitializeComponent();
-            
+
 
         }
 
@@ -43,63 +43,48 @@ namespace B2_ProjetSQLwpf
 
         private void mainwindowButtonConnexion_Click(object sender, RoutedEventArgs e)
         {
-            try
+            sql.OpenConnexion();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'", sql.con);
+            using (SqlDataReader dataReader = cmd.ExecuteReader())
             {
-                sql.OpenConnexion();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'", sql.con);
-                using (SqlDataReader dataReader = cmd.ExecuteReader())
+                if (dataReader.Read())
                 {
-                    if (dataReader.Read())
-                    {
-                        CurrentUser.IdUser = dataReader.GetInt32(0);
-                        CurrentUser.UserName = mainwindowTextboxLogin.Text;
-                        Accueil accueil = new Accueil();
-                        accueil.Show();
-                        //Console.WriteLine(CurrentUser.IdUser);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Mail ou mot de passe incorrect");
-                    }
-                }   
+                    CurrentUser.IdUser = dataReader.GetInt32(0);
+                    CurrentUser.UserName = mainwindowTextboxLogin.Text;
+                    Accueil accueil = new Accueil();
+                    accueil.Show();
+                    //Console.WriteLine(CurrentUser.IdUser);
+                }
+                else
+                {
+                    MessageBox.Show("Mail ou mot de passe incorrect");
+                }
             }
-            catch
-            {
-                throw new Exception();
-            }
-
-            
-
-            /*while (dataReader.Read())
-            {
-                Console.WriteLine(dataReader["mail_u"]);
-            }*/
-
-
-            /*DataTable dt = new DataTable();
-            sda.Fill(dt);
-            //Console.WriteLine(dt.Rows[0][0].ToString());
-            if (dt.Rows[0][0].ToString() == "1")
-            {
-                MessageBox.Show("La connection a réussi");
-            }
-            else
-            {
-                MessageBox.Show("La connection a échouer");
-            }*/
         }
+
+
+
+        /*while (dataReader.Read())
+        {
+            Console.WriteLine(dataReader["mail_u"]);
+        }*/
+
+
+        /*DataTable dt = new DataTable();
+        sda.Fill(dt);
+        //Console.WriteLine(dt.Rows[0][0].ToString());
+        if (dt.Rows[0][0].ToString() == "1")
+        {
+            MessageBox.Show("La connection a réussi");
+        }
+        else
+        {
+            MessageBox.Show("La connection a échouer");
+        }*/
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            try
-            {
-               sql.ClosConnexion();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+             sql.ClosConnexion();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
