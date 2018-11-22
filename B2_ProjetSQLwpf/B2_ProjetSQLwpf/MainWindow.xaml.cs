@@ -94,5 +94,11 @@ namespace B2_ProjetSQLwpf
         {
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Messagerie messagerie = new Messagerie();
+            messagerie.Show();
+        }
     }
 }

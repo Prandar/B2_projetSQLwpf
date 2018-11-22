@@ -151,37 +151,7 @@ namespace B2_ProjetSQLwpf
                 return true;
             }
         }
-
-        public void EnleverProdList(string nomduprod)
-        {
-            Data.listpanier.Remove(nomduprod);
-        }
-
-        /*public bool EnvoyerMessage()
-         {
-             string commandesql = "INSERT into messager(contenue_m, id_u, id_u_destinataire) values('Je pense que 17€ est un prix acceptable', 6, 1)";
-             return true;
-         }*/
-
-        public string AfficherMessage(int id_u_expe, int id_u_dest)
-        {
-            string commandesql = "Select contenue_m, nom_u, prenom_u From messager M, utilisateur U where M.id_u = " +id_u_expe + " AND U.id_u = " + id_u_dest + " OR M.id_u = " + id_u_expe + " AND U.id_u = " + id_u_dest ;
-            SqlCommand cmd = new SqlCommand(commandesql);
-            using (SqlDataReader dataReader = cmd.ExecuteReader())
-            {
-                if (dataReader.Read())
-                {
-                    MessageBox.Show("trouvé GG!");
-                }
-                else
-                {
-                    MessageBox.Show("pas trouvé /ff?");
-                }
-                return commandesql;
-            }
-        }
-
-        public bool AcheterProd(int id_prod)
+        /*public bool AcheterProd(int id_prod)
         {
             string commandesql = "UPDATE produit SET etat_prod = 'En Négociation' Where id_prod =" + id_prod;
             SqlCommand cmd = new SqlCommand(commandesql);
@@ -198,7 +168,7 @@ namespace B2_ProjetSQLwpf
                     return false;
                 }
             }  
-        }
+        }*/
 
         public bool AnnulerAchatProd(int id_prod)
         {
