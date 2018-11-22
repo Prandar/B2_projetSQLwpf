@@ -59,6 +59,10 @@ namespace B2_ProjetSQLwpf
             DataRowView gd = (DataRowView)accueilDataGrid.SelectedItem;
             if (gd != null)
             {
+                foreach (String item in Data.listpanier)
+                {
+                    Console.WriteLine(item);
+                }
                 string nom = gd["Nom"].ToString();
                 Data.listpanier.Add(nom);
             }
@@ -110,11 +114,11 @@ namespace B2_ProjetSQLwpf
 
             if (dataReader.Read())
             {
-                MessageBox.Show("trouvé frere ! ! !");
+                //MessageBox.Show("trouvé frere ! ! !");
             }
             else
             {
-                MessageBox.Show("pas trouver gros");
+                MessageBox.Show("pas trouvé ! ! !");
             }
             return commandesql;
         }
@@ -208,8 +212,8 @@ namespace B2_ProjetSQLwpf
 
         private void accueilButtonPaniers_Click(object sender, RoutedEventArgs e)
         {
-            AddProduit addProduit = new AddProduit();
-            addProduit.Show();
+            Panier panier = new Panier();
+            panier.Show();
         }
     }
 }
