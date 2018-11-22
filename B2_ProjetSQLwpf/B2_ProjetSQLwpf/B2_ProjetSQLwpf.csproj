@@ -79,6 +79,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CurrentUser.cs" />
+    <Compile Include="Profil.xaml.cs">
+      <DependentUpon>Profil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sql.cs" />
     <Compile Include="Liste.cs" />
     <Compile Include="exchangeDataSet.Designer.cs">
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Panier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Profil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,7 +10,7 @@
         <Canvas x:Name="accueilCanvasUiTopBar" Grid.ColumnSpan="2">
             <Rectangle Fill="#FFFFFF" HorizontalAlignment="Left" Height="64" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="794"/>
             <Label x:Name="labelBonjour" Content="" Canvas.Top="10" Height="32" Width="346" FontSize="18" Canvas.Left="10"/>
-            <Button Content="Déconnexion" Canvas.Left="646" Canvas.Top="10" Width="138" Height="32" FontSize="18"/>
+            <Button Content="Déconnexion" Canvas.Left="646" Canvas.Top="10" Width="138" Height="32" FontSize="18" Click="Button_Click_1"/>
             <TextBlock x:Name="AccueilTextBlockNom" Height="32" Canvas.Left="99" TextWrapping="Wrap" Text="" Canvas.Top="10" Width="101"/>
             <TextBox x:Name="accueilTextboxBarDeRecherche" Height="24" Canvas.Left="391" TextWrapping="Wrap" Canvas.Top="18" Width="120"/>
         </Canvas>
@@ -19,8 +19,9 @@
             </DataGrid>
             <Button x:Name="accueilBoutonAfficher" Content="Afficher" Canvas.Left="520" Canvas.Top="20" Width="92" Click="accueilBoutonAfficher_Click"/>
             <Button Content="Ajouter un produit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Click="Button_Click" Canvas.Left="26" Canvas.Top="337"/>
-            <Button x:Name="AddProduitAccueilButton" Content="Acheter un produit" Canvas.Left="248" Canvas.Top="337" Width="112" Click="buyProduitAccueilButton_Click"/>
-            <Button x:Name="accueilButtonPaniers" Content="Paniers" Canvas.Left="520" Canvas.Top="337" Width="75" Click="accueilButtonPaniers_Click"/>
+            <Button x:Name="AddProduitAccueilButton" Content="Ajouter au panier" Canvas.Left="214" Canvas.Top="337" Width="112" Click="buyProduitAccueilButton_Click"/>
+            <Button x:Name="accueilButtonPaniers" Content="Paniers" Canvas.Left="400" Canvas.Top="337" Width="75" Click="accueilButtonPaniers_Click"/>
+            <Button x:Name="ProfilAccueilButton" Content="Profil" Canvas.Left="537" Canvas.Top="337" Width="85" Click="ProfilAccueilButton_Click"/>
         </Canvas>
     </Grid>
 </Window>

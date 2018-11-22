@@ -1,0 +1,17 @@
+﻿<Window x:Class="B2_ProjetSQLwpf.Profil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:B2_ProjetSQLwpf"
+        mc:Ignorable="d"
+        Title="Profil" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="ProfilDataGrid" HorizontalAlignment="Left" Height="195" Margin="89,107,0,0" VerticalAlignment="Top" Width="478"/>
+        <Button x:Name="BackProfilButton" Content="Retour" HorizontalAlignment="Left" Margin="707,324,0,0" VerticalAlignment="Top" Width="76" Click="BackProfilButton_Click"/>
+        <Button x:Name="ModifierProfilButton" Content="Modifier une annonce" HorizontalAlignment="Left" Margin="646,374,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button x:Name="DeleteProfilButton" Content="Supprimer une annonce" HorizontalAlignment="Left" Margin="646,349,0,0" VerticalAlignment="Top" Width="136" Click="DeleteProfilButton_Click"/>
+        <Label x:Name="ProfilLabel" Content="" HorizontalAlignment="Left" Height="32" Margin="89,42,0,0" VerticalAlignment="Top" Width="300"/>
+
+    </Grid>
+</Window>

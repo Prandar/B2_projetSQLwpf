@@ -61,9 +61,7 @@ namespace B2_ProjetSQLwpf
             {
                 string nom = gd["Nom"].ToString();
                 Data.listpanier.Add(nom);
-            }
-            Panier panier = new Panier();
-            panier.Show();
+            }        
         }
 
         public SqlDataReader AfficherToutProduits()
@@ -208,8 +206,30 @@ namespace B2_ProjetSQLwpf
 
         private void accueilButtonPaniers_Click(object sender, RoutedEventArgs e)
         {
-            AddProduit addProduit = new AddProduit();
-            addProduit.Show();
+            Panier panier = new Panier();
+            panier.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CurrentUser.IdUser = 0;
+                CurrentUser.UserName = null;
+                this.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void ProfilAccueilButton_Click(object sender, RoutedEventArgs e)
+        {
+            Profil profil = new Profil();
+            profil.Show();
         }
     }
 }
