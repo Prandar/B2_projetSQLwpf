@@ -13,6 +13,8 @@ namespace B2_ProjetSQLwpf
 
        public static int IdProd { get; set; }
 
+        public static bool UserAdmin { get; set; }
+
 
     }
 }

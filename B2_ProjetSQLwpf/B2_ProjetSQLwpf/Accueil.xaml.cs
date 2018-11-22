@@ -31,6 +31,23 @@ namespace B2_ProjetSQLwpf
             DataTable dt = new DataTable("utilisateur, produit");
             sda.Fill(dt);
             accueilDataGrid.ItemsSource = dt.DefaultView;
+            try
+            {
+                if (CurrentUser.UserAdmin == true)
+                {
+                    DeleteAccueilButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    DeleteAccueilButton.Visibility = Visibility.Hidden;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            accueilDataGrid.Items.Refresh();
             //RechercheProduit("patate moulinex truc");
             //AfficherToutProduits();
             //AjouterProduit("Moulin à café", 15, "C:\\test", "Le moulin a café de mon coloc", 1, 1);
@@ -234,6 +251,38 @@ namespace B2_ProjetSQLwpf
         {
             Profil profil = new Profil();
             profil.Show();
+        }
+
+        private void DeleteAccueilButton_Click(object sender, RoutedEventArgs e)
+        {
+            sql.OpenConnexion();
+            try
+            {
+                DataRowView gd = (DataRowView)accueilDataGrid.SelectedItem;
+                if (gd != null)
+                {
+                    string nom = gd["Nom"].ToString();                    
+                    string description = gd["Description"].ToString();
+                    string query = "DELETE FROM Produit WHERE nom_prod = '" + nom + "' and description_prod = '" + description +"'";
+                    SqlCommand cmd = new SqlCommand(query, sql.con);
+                    SqlDataReader reader = cmd.ExecuteReader();                    
+                    MessageBox.Show("Le produit a bien été suppimé");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                sql.ClosConnexion();
+            }
+        }
+
+        private void accueilDataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            //accueilDataGrid.Items.Refresh();
         }
     }
 }

@@ -63,6 +63,9 @@
       <DependentUpon>AddProduit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="Messagerie.xaml.cs">
+      <DependentUpon>Messagerie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Panier.xaml.cs">
       <DependentUpon>Panier.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddProduit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Messagerie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

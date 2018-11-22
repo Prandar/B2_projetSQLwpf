@@ -64,5 +64,18 @@ namespace B2_ProjetSQLwpf
             }
             return true;
         }
+
+        private void BackPanierButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -51,6 +51,7 @@ namespace B2_ProjetSQLwpf
                 {
                     CurrentUser.IdUser = dataReader.GetInt32(0);
                     CurrentUser.UserName = mainwindowTextboxLogin.Text;
+                    CurrentUser.UserAdmin = dataReader.GetBoolean(11);
                     mainwindowTextboxLogin.Clear();
                     mainwindowTextboxMdp.Clear();
                     Accueil accueil = new Accueil();

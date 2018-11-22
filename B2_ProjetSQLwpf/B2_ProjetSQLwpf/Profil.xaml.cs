@@ -103,5 +103,33 @@ namespace B2_ProjetSQLwpf
                 sql.ClosConnexion();
             }
         }
+
+        private void ModifierProfilButton_Click(object sender, RoutedEventArgs e)
+        {
+            sql.OpenConnexion();
+            try
+            {
+                DataRowView gd = (DataRowView)ProfilDataGrid.SelectedItem;
+                if (gd != null)
+                {
+                    string nom = gd["Nom"].ToString();
+                    int prix = int.Parse(gd["Prix"].ToString());
+                    string description = gd["Description"].ToString();
+                    string query = "Update Produit set nom_prod = '" + nom + "', prix_prod = " + prix + ", description_prod = '" + description + "'  WHERE id_u = " + CurrentUser.IdUser + " and nom_prod = '" + nom + "'";
+                    SqlCommand cmd = new SqlCommand(query, sql.con);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    MessageBox.Show("Le produit a bien été modifier");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                sql.ClosConnexion();
+            }
+        }
     }
 }

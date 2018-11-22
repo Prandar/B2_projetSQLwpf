@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid x:Name="ProfilDataGrid" HorizontalAlignment="Left" Height="195" Margin="89,107,0,0" VerticalAlignment="Top" Width="478"/>
         <Button x:Name="BackProfilButton" Content="Retour" HorizontalAlignment="Left" Margin="707,324,0,0" VerticalAlignment="Top" Width="76" Click="BackProfilButton_Click"/>
-        <Button x:Name="ModifierProfilButton" Content="Modifier une annonce" HorizontalAlignment="Left" Margin="646,374,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button x:Name="ModifierProfilButton" Content="Modifier une annonce" HorizontalAlignment="Left" Margin="646,374,0,0" VerticalAlignment="Top" Width="135" Click="ModifierProfilButton_Click"/>
         <Button x:Name="DeleteProfilButton" Content="Supprimer une annonce" HorizontalAlignment="Left" Margin="646,349,0,0" VerticalAlignment="Top" Width="136" Click="DeleteProfilButton_Click"/>
         <Label x:Name="ProfilLabel" Content="" HorizontalAlignment="Left" Height="32" Margin="89,42,0,0" VerticalAlignment="Top" Width="300"/>
 
