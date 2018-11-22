@@ -20,6 +20,7 @@
             <Button x:Name="accueilBoutonAfficher" Content="Afficher" Canvas.Left="520" Canvas.Top="20" Width="92" Click="accueilBoutonAfficher_Click"/>
             <Button Content="Ajouter un produit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Click="Button_Click" Canvas.Left="26" Canvas.Top="337"/>
             <Button x:Name="AddProduitAccueilButton" Content="Acheter un produit" Canvas.Left="248" Canvas.Top="337" Width="112" Click="buyProduitAccueilButton_Click"/>
+            <Button x:Name="accueilButtonPaniers" Content="Paniers" Canvas.Left="520" Canvas.Top="337" Width="75" Click="accueilButtonPaniers_Click"/>
         </Canvas>
     </Grid>
 </Window>
