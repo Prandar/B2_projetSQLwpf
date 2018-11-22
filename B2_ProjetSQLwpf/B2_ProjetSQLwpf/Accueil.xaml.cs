@@ -43,18 +43,6 @@ namespace B2_ProjetSQLwpf
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid gd = (DataGrid)sender;
-            DataRowView select = gd.SelectedItem as DataRowView;
-            if (select != null)
-            {
-                string nom = select["Nom"].ToString();
-                Data.listpanier.Add(nom);
-
-                foreach (string item in Data.listpanier)
-                {
-                    Console.WriteLine(item);
-                }
-            }
         }
 
         private void accueilBoutonAfficher_Click(object sender, RoutedEventArgs e)
@@ -68,7 +56,12 @@ namespace B2_ProjetSQLwpf
 
         private void buyProduitAccueilButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DataRowView gd = (DataRowView)accueilDataGrid.SelectedItem;
+            if (gd != null)
+            {
+                string nom = gd["Nom"].ToString();
+                Data.listpanier.Add(nom);
+            }
             Panier panier = new Panier();
             panier.Show();
         }
@@ -95,7 +88,7 @@ namespace B2_ProjetSQLwpf
         public string RechercheProduit(string textrecherche)
         {
             sql.OpenConnexion();
-            string commandesql = "SELECT nom_prod as Nom, nom_u as Vendeur, description_prod as Description, libelle_cat as Catégorie, etat_prod as Etat, prix_prod as Prix " +
+            string commandesql = "SELECT id_prod, nom_prod as Nom, nom_u as Vendeur, description_prod as Description, libelle_cat as Catégorie, etat_prod as Etat, prix_prod as Prix " +
                                  "FROM utilisateur u, produit p, categorie c WHERE u.id_u = p.id_u and c.id_cat = p.id_cat and ";
             string[] motsderecherche = textrecherche.Split(' ');
             int index = 1;

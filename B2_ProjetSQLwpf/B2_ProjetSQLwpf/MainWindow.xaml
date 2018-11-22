@@ -14,6 +14,5 @@
         <Button x:Name="mainwindowButtonInscription" Content="Inscription" HorizontalAlignment="center" Margin="170,320,202,0" VerticalAlignment="Top" Width="76" Click="mainwindowButtonInscription_Click" Grid.Column="1"/>
         <TextBox x:Name="mainwindowTextboxLogin" HorizontalAlignment="center" Height="23" Margin="186,132,142,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <TextBox x:Name="mainwindowTextboxMdp" HorizontalAlignment="Center" Height="23" Margin="186,196,142,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="mainwindowTextboxMdp_TextChanged" Grid.Column="1"/>
-
     </Grid>
 </Window>

@@ -11,6 +11,8 @@ namespace B2_ProjetSQLwpf
        public static string UserName { get; set; }
        public static int IdUser { get; set; }
 
+       public static int IdProd { get; set; }
+
 
     }
 }

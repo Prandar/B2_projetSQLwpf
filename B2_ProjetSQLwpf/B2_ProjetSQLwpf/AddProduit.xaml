@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Ajouter un produit" Height="450" Width="800">
     <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="593*"/>
+            <ColumnDefinition Width="199*"/>
+        </Grid.ColumnDefinitions>
         <TextBox x:Name="addProduitNameTextBox" HorizontalAlignment="Left" Height="23" Margin="29,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="addProduitNameLabel" Content="Nom du produit" HorizontalAlignment="Left" Margin="42,209,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="addProduitPrixTextBox" HorizontalAlignment="Left" Height="23" Margin="29,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
@@ -16,7 +20,7 @@
         <TextBox x:Name="addProduitPhotoTextBox" HorizontalAlignment="Left" Height="23" Margin="238,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="addProduitPhotoLabel" Content="Photo (mettre le lien)" HorizontalAlignment="Left" Margin="236,307,0,0" VerticalAlignment="Top"/>
         <Label x:Name="addProduitLibelleLabel" Content="Catégorie" HorizontalAlignment="Left" Margin="453,209,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="addProduitAjouterBouton" Content="Ajouter" HorizontalAlignment="Left" Margin="609,338,0,0" VerticalAlignment="Top" Width="75" Click="addProduitAjouterBouton_Click"/>
+        <Button x:Name="addProduitAjouterBouton" Content="Ajouter" HorizontalAlignment="Left" Margin="15.885,338,0,0" VerticalAlignment="Top" Width="75" Click="addProduitAjouterBouton_Click" Grid.Column="1"/>
         <Label Content="Ajouter un produit" HorizontalAlignment="Left" Margin="236,29,0,0" VerticalAlignment="Top" Height="83" Width="305" FontSize="36"/>
         <TextBox x:Name="addProduitDescriptionTextBox" HorizontalAlignment="Left" Height="23" Margin="433,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="453,307,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.151,0.51"/>
