@@ -64,13 +64,11 @@ constraint FK_Filtre_possede foreign key (id_fi) references filtre(id_fi)
 
 create table achat(
 id_op int identity (1,1) not null,
-date_deb_op datetime not null,
-date_fin_op datetime,
-quantity_op int not null,
 id_prod int not null,
 id_u int not null,
 constraint PK_Operation primary key (id_op),
-constraint FK_Utilisateur_operation foreign key (id_u) references utilisateur(id_u)
+constraint FK_Utilisateur_operation foreign key (id_u) references utilisateur(id_u),
+constraint FK_Utilisateur_operation foreign key (id_prod) references Produit(id_prod)
 )
 
 create table messager(

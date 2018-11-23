@@ -30,15 +30,15 @@ namespace B2_ProjetSQLwpf
 
         private void messageButton_Click(object sender, RoutedEventArgs e)
         {
-            string message = messageTextBox.Text;
-            if (message == "")
-            {
-                MessageBox.Show("veuillez écrire un message.");
-            }
-            else
-            {
+            //string message = messageTextBox.Text;
+            //if (message == "")
+            //{
+            //    MessageBox.Show("veuillez écrire un message.");
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
 
         public string AfficherMessage(int id_u_expe, int id_u_dest)

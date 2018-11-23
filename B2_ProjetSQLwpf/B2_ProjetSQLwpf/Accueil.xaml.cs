@@ -181,25 +181,6 @@ namespace B2_ProjetSQLwpf
             }
         }
 
-        public bool AcheterProd(int id_prod)
-        {
-            string commandesql = "UPDATE produit SET etat_prod = 'En Négociation' Where id_prod =" + id_prod;
-            SqlCommand cmd = new SqlCommand(commandesql);
-            using (SqlDataReader dataReader = cmd.ExecuteReader())
-            {
-                if (dataReader.Read())
-                {
-                    MessageBox.Show("Vous avez acheté, Attendez la validation du vendeur");
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("erreur ... deja acheté par quelqu'un d'autre ?");
-                    return false;
-                }
-            }  
-        }
-
         public bool AnnulerAchatProd(int id_prod)
         {
             string commandesql = "UPDATE produit SET etat_prod = 'En Vente' Where id_prod =" + id_prod;

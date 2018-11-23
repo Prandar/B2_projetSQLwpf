@@ -30,11 +30,6 @@ namespace B2_ProjetSQLwpf
 
         }
 
-        private void mainwindowTextboxMdp_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void mainwindowButtonInscription_Click(object sender, RoutedEventArgs e)
         {
             Inscription f = new Inscription();
@@ -44,7 +39,7 @@ namespace B2_ProjetSQLwpf
         private void mainwindowButtonConnexion_Click(object sender, RoutedEventArgs e)
         {
             sql.OpenConnexion();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Text + "'", sql.con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM utilisateur WHERE mail_u = '" + mainwindowTextboxLogin.Text + "' AND mdp_u ='" + mainwindowTextboxMdp.Password + "'", sql.con);
             using (SqlDataReader dataReader = cmd.ExecuteReader())
             {
                 if (dataReader.Read())

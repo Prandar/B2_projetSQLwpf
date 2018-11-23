@@ -17,5 +17,6 @@
         </ListView>
         <Button x:Name="panierButtonSuppr" Content="Supprimer" HorizontalAlignment="Left" Margin="707,364,0,0" VerticalAlignment="Top" Width="75" Click="panierButtonSuppr_Click"/>
         <Button x:Name="BackPanierButton" Content="Retour" HorizontalAlignment="Left" Margin="707,389,0,0" VerticalAlignment="Top" Width="75" Click="BackPanierButton_Click"/>
+        <Button x:Name="panierButton" Content="Acheter" HorizontalAlignment="Left" Margin="707,339,0,0" VerticalAlignment="Top" Width="75" Click="panierButton_Click"/>
     </Grid>
 </Window>

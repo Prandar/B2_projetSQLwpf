@@ -22,6 +22,7 @@ namespace B2_ProjetSQLwpf
     public partial class Panier : Window
     {
         ListViewItem itemDeBase = new ListViewItem();
+        Sql sql = new Sql();
         public Panier()
         {
             InitializeComponent();
@@ -76,6 +77,95 @@ namespace B2_ProjetSQLwpf
 
                 throw;
             }
+        }
+
+        private void panierButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (ListViewItem item in listPanierListView.SelectedItems)
+            {
+                String _titreOBJ = item.Content.ToString();
+
+
+                int _id = RechercheIdProduit(_titreOBJ);
+                sql.OpenConnexion();
+
+                String query = " insert into achat values ("+ CurrentUser.IdUser +", " + _id + ")";
+                SqlCommand cmd = new SqlCommand(query, sql.con);
+                //cmd.Parameters.AddWithValue("@id_u", CurrentUser.IdUser);
+                //cmd.Parameters.AddWithValue("@id", _id);
+                //cmd.ExecuteNonQuery();
+                MessageBox.Show("youpis");
+
+
+                //AcheterProd(_id_prod);
+
+            }
+            sql.ClosConnexion();
+        }
+
+        public bool AcheterProd(int id_prod)
+        {
+            sql.OpenConnexion();
+            string commandesql = "UPDATE produit SET etat_prod = 'En Négociation' Where id_prod =" + id_prod;
+            SqlCommand cmd = new SqlCommand(commandesql);
+            using (SqlDataReader dataReader = cmd.ExecuteReader())
+            {
+                if (dataReader.Read())
+                {
+                    MessageBox.Show("Vous avez acheté, Attendez la validation du vendeur");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("erreur ... deja acheté par quelqu'un d'autre ?");
+                    return false;
+                }
+            }
+        }
+
+        public int RechercheIdProduit(string textrecherche)
+        {
+            int _id = 0;
+            sql.OpenConnexion();
+            string commandesql = "SELECT TOP(1) id_prod FROM produit WHERE";
+            string[] motsderecherche = textrecherche.Split(' ');
+            int index = 1;
+            foreach (string mot in motsderecherche)
+            {
+                if (index < motsderecherche.Length)
+                {
+                    commandesql += " nom_prod LIKE '%" + mot + "%' OR";
+                    index++;
+                }
+                else
+                {
+                    commandesql += " nom_prod LIKE '%" + mot + "%'";
+                }
+            }
+
+            SqlCommand cmd = new SqlCommand(commandesql, sql.con);
+            SqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                //MessageBox.Show("trouvé frere ! ! !");
+
+                _id = dataReader.GetInt32(0);
+                Console.WriteLine(_id);
+            }
+            else
+            {
+                MessageBox.Show("pas trouvé ! ! !");
+            }
+
+
+
+            //String truc = dataReader.GetString(0);
+
+            //Console.WriteLine(truc.ToString());
+
+            //sql.ClosConnexion();
+            return _id;
         }
     }
 }

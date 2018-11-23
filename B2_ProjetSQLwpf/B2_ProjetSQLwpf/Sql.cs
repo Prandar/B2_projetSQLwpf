@@ -18,8 +18,8 @@ namespace B2_ProjetSQLwpf
 {
     public class Sql
     {
-        public string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
-        //public string connectionString = "Data Source=192.168.159.140;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+        //public string connectionString = "Data Source=192.168.137.128;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
+        public string connectionString = "Data Source=192.168.159.143;Initial Catalog=exchange;User ID=sa;Password=abcd4ABCD";
         public SqlConnection con;
 
         public void OpenConnexion()
