@@ -22,6 +22,7 @@
             <Button x:Name="accueilButtonPaniers" Content="Paniers" Canvas.Left="400" Canvas.Top="337" Width="75" Click="accueilButtonPaniers_Click"/>
             <Button x:Name="ProfilAccueilButton" Content="Profil" Canvas.Left="537" Canvas.Top="337" Width="85" Click="ProfilAccueilButton_Click"/>
             <Button x:Name="DeleteAccueilButton" Content="Supprimer" Canvas.Left="26" Canvas.Top="381" Width="112" Click="DeleteAccueilButton_Click"/>
+            <Button x:Name="MailAccueilButton" Content="Button" Canvas.Left="221" Canvas.Top="382" Width="75" Click="MailAccueilButton_Click"/>
         </Canvas>
     </Grid>
 </Window>

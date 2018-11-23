@@ -60,6 +60,32 @@ namespace B2_ProjetSQLwpf
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DataRowView dataRow = (DataRowView)accueilDataGrid.SelectedItem;
+            if(dataRow != null)
+            {
+                int id_prod = int.Parse(dataRow["id_prod"].ToString());
+                sql.OpenConnexion();
+                try
+                {
+                    string query = "SELECT mail_u FROM utilisateur u, produit p WHERE u.id_u = p.id_u and p.id_prod = " + id_prod;
+                    SqlCommand cmd = new SqlCommand(query, sql.con);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Data.listeMail.Add(reader.GetString(reader.GetOrdinal("mail_u")));
+                    }    
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    sql.ClosConnexion();
+                }
+                
+            }
         }
 
         private void accueilBoutonAfficher_Click(object sender, RoutedEventArgs e)
@@ -253,6 +279,12 @@ namespace B2_ProjetSQLwpf
         private void accueilDataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             //accueilDataGrid.Items.Refresh();
+        }
+
+        private void MailAccueilButton_Click(object sender, RoutedEventArgs e)
+        {
+            Messagerie messagerie = new Messagerie();
+            messagerie.Show();
         }
     }
 }

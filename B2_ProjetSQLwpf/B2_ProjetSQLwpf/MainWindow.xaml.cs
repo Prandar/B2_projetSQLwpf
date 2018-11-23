@@ -87,7 +87,7 @@ namespace B2_ProjetSQLwpf
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-             sql.ClosConnexion();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
