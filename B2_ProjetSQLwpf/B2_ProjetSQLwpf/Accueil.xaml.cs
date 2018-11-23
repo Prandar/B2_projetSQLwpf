@@ -60,6 +60,32 @@ namespace B2_ProjetSQLwpf
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            DataRowView dataRow = (DataRowView)accueilDataGrid.SelectedItem;
+            if(dataRow != null)
+            {
+                int id_prod = int.Parse(dataRow["id_prod"].ToString());
+                sql.OpenConnexion();
+                try
+                {
+                    string query = "SELECT mail_u FROM utilisateur u, produit p WHERE u.id_u = p.id_u and p.id_prod = " + id_prod;
+                    SqlCommand cmd = new SqlCommand(query, sql.con);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Data.listeMail.Add(reader.GetString(reader.GetOrdinal("mail_u")));
+                    }    
+        }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    sql.ClosConnexion();
+                }
+                
+            }
         }
 
         private void accueilBoutonAfficher_Click(object sender, RoutedEventArgs e)
@@ -151,35 +177,24 @@ namespace B2_ProjetSQLwpf
                 return true;
             }
         }
-
-        public void EnleverProdList(string nomduprod)
+        /*public bool AcheterProd(int id_prod)
         {
-            Data.listpanier.Remove(nomduprod);
-        }
-
-        /*public bool EnvoyerMessage()
-         {
-             string commandesql = "INSERT into messager(contenue_m, id_u, id_u_destinataire) values('Je pense que 17€ est un prix acceptable', 6, 1)";
-             return true;
-         }*/
-
-        public string AfficherMessage(int id_u_expe, int id_u_dest)
-        {
-            string commandesql = "Select contenue_m, nom_u, prenom_u From messager M, utilisateur U where M.id_u = " +id_u_expe + " AND U.id_u = " + id_u_dest + " OR M.id_u = " + id_u_expe + " AND U.id_u = " + id_u_dest ;
+            string commandesql = "UPDATE produit SET etat_prod = 'En Négociation' Where id_prod =" + id_prod;
             SqlCommand cmd = new SqlCommand(commandesql);
             using (SqlDataReader dataReader = cmd.ExecuteReader())
             {
                 if (dataReader.Read())
                 {
-                    MessageBox.Show("trouvé GG!");
+                    MessageBox.Show("Vous avez acheté, Attendez la validation du vendeur");
+                    return true;
                 }
                 else
                 {
-                    MessageBox.Show("pas trouvé /ff?");
+                    MessageBox.Show("erreur ... deja acheté par quelqu'un d'autre ?");
+                    return false;
                 }
-                return commandesql;
-            }
-        }
+            }  
+        }*/
 
         public bool AnnulerAchatProd(int id_prod)
         {
@@ -265,5 +280,11 @@ namespace B2_ProjetSQLwpf
         {
             //accueilDataGrid.Items.Refresh();
         }
+
+        private void MailAccueilButton_Click(object sender, RoutedEventArgs e)
+        {
+            Messagerie messagerie = new Messagerie();
+            messagerie.Show();
+    }
     }
 }

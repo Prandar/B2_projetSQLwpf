@@ -82,12 +82,18 @@ namespace B2_ProjetSQLwpf
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-             sql.ClosConnexion();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Messagerie messagerie = new Messagerie();
+            messagerie.Show();
         }
     }
 }

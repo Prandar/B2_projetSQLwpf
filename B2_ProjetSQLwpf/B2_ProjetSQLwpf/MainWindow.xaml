@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Label x:Name="mainwindowLabelBienvenue" Content="Bienvenue !!" HorizontalAlignment="Center" Margin="106,32,138,0" VerticalAlignment="Top" FontSize="36" Grid.Column="1"/>
-        <Label x:Name="mainwindowLabelLogin" Content="Login" HorizontalAlignment="center" Margin="124,128,284,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="mainwindowLabelLogin" Content="Mail" HorizontalAlignment="center" Margin="124,128,284,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label x:Name="mainwindowLabelMdp" Content="Mdp" HorizontalAlignment="center" Margin="126,192,286,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Button x:Name="mainwindowButtonConnexion" Content="Connexion" HorizontalAlignment="center" Margin="170,256,202,0" VerticalAlignment="Top" Width="76" Click="mainwindowButtonConnexion_Click" Grid.Column="1"/>
         <Button x:Name="mainwindowButtonInscription" Content="Inscription" HorizontalAlignment="center" Margin="170,320,202,0" VerticalAlignment="Top" Width="76" Click="mainwindowButtonInscription_Click" Grid.Column="1"/>

@@ -7,5 +7,17 @@
         mc:Ignorable="d"
         Title="Messagerie" Height="450" Width="800">
     <Grid>
+        <TextBox x:Name="messageTextBox" HorizontalAlignment="Left" Height="274" Margin="31,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301"/>
+        <Button x:Name="messageButton" Content="Envoyer" HorizontalAlignment="Left" Margin="101,368,0,0" VerticalAlignment="Top" Width="75" Click="messageButton_Click"/>
+        <TextBox x:Name="from" HorizontalAlignment="Left" Height="27" Margin="510,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+        <TextBox x:Name="to" HorizontalAlignment="Left" Height="29" Margin="510,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+        <TextBox x:Name="subjet" HorizontalAlignment="Left" Height="27" Margin="510,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+        <TextBox x:Name="user" HorizontalAlignment="Left" Height="27" Margin="510,243,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+        <Label Content="Source" HorizontalAlignment="Left" Height="27" Margin="415,81,0,0" VerticalAlignment="Top" Width="56"/>
+        <Label Content="Destination" HorizontalAlignment="Left" Margin="415,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sujet" HorizontalAlignment="Left" Margin="415,188,0,0" VerticalAlignment="Top"/>
+        <Label Content="Identifiant" HorizontalAlignment="Left" Margin="415,243,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mdp" HorizontalAlignment="Left" Margin="415,294,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="mdp" HorizontalAlignment="Left" Height="26" Margin="510,294,0,0" VerticalAlignment="Top" Width="242"/>
     </Grid>
 </Window>

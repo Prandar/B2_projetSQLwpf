@@ -28,6 +28,6 @@
         <Label x:Name="InscriptionLabelMdp" Content="Mot de passe" HorizontalAlignment="Left" Margin="250,228,0,0" VerticalAlignment="Top"/>
         <Label x:Name="InscriptionLabelSolde" Content="Solde" HorizontalAlignment="Left" Margin="275,299,0,0" VerticalAlignment="Top"/>
         <Image HorizontalAlignment="Left" Height="125" Margin="438,0,0,277" VerticalAlignment="Bottom" Width="329" Source="..\Image\Inscription.png"/>
-        <Button x:Name="InscriptionButtonConnexion" Content="Connexion" HorizontalAlignment="Left" Height="40" Margin="504,313,0,0" VerticalAlignment="Top" Width="203" Click="InscriptionButtonConnexion_Click"/>
+        <Button x:Name="InscriptionButtonConnexion" Content="S'inscrire" HorizontalAlignment="Left" Height="40" Margin="504,313,0,0" VerticalAlignment="Top" Width="203" Click="InscriptionButtonConnexion_Click"/>
     </Grid>
 </Window>
